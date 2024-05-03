@@ -11,17 +11,24 @@ body {
   font-size: 62.5%;
 }
 
-ul {
-  list-style: none;
-}
-
 button {
   cursor: pointer;
   border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

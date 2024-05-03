@@ -1,0 +1,127 @@
+@import "./reset.css";
+
+body {
+  font-size: 1.3rem;
+}
+
+body::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url("/assets/grid-pattern.jpg");
+  background-size: cover;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+main {
+  width: fit-content;
+  display: flex;
+  border: solid 0.1rem #d9d9d9;
+  padding: 1.5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.calendar-container {
+  padding: 1.5rem;
+}
+
+.year-month {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.days {
+  display: flex;
+}
+
+.day {
+  width: calc(100% / 7);
+  padding: 0.5rem 2.2rem;
+  border: 0.1rem solid #d9d9d9;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.dates {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 1.1rem;
+}
+
+.date {
+  width: calc(100% / 7);
+  height: 8rem;
+  padding: 0.8rem;
+  border: 0.1rem solid #d9d9d9;
+}
+
+.calendar-container {
+  border-right: solid 0.1rem #d9d9d9;
+}
+
+.todo-container {
+  width: 25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todo-today {
+  margin-bottom: 1rem;
+}
+
+.todo-todo {
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.2rem;
+}
+
+.todo-check-text {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.todo-delete-icon {
+  justify-self: end;
+  width: 1rem;
+}
+
+.todo-delete-btn {
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+}
+
+.todo-delete-btn:active {
+  background-color: #e9e9e9;
+}
+
+.todo-work-complete {
+  text-decoration-line: line-through;
+  color: #d9d9d9;
+}
+
+.todo-input {
+  padding: 0.7rem 1rem;
+  border: solid 0.1rem #d9d9d9;
+  border-radius: 1.5rem;
+  outline-color: #56a4ff;
+}
+
+.todo-input::placeholder {
+  font-size: 1rem;
+}

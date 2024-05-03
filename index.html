@@ -1,36 +1,134 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calender ToDo</title>
+    <link rel="stylesheet" href="./styles//index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calender ToDo</title>
-</head>
-
-<body>
-  <div class="calendar-container">
-    <div class="header">
-      <div class="year-month">
-        <div class="nav">
-          <button class="nav-btn go-prev"><img src="./assets/left-button.svg" alt="prev-next" /></button>
-          <button class="nav-btn go-todo">Today</button>
-          <button class="nav-btn go-next"><img src="./assets/right-button.svg" alt="prev-next" /></button>
+  <body>
+    <main>
+      <div class="calendar-container">
+        <div class="header">
+          <div class="year-month">
+            <div class="nav">
+              <button class="nav-btn go-prev">
+                <img src="./assets/left-button.svg" alt="prev-next" />
+              </button>
+              <button class="nav-btn go-todo">Today</button>
+              <button class="nav-btn go-next">
+                <img src="./assets/right-button.svg" alt="prev-next" />
+              </button>
+            </div>
+          </div>
+          <div class="main">
+            <div class="days">
+              <div class="day">SUN</div>
+              <div class="day">MON</div>
+              <div class="day">TUE</div>
+              <div class="day">WED</div>
+              <div class="day">THU</div>
+              <div class="day">FRI</div>
+              <div class="day">SAT</div>
+            </div>
+            <div class="dates"></div>
+          </div>
         </div>
       </div>
-      <div class="main">
-        <div class="days">
-          <div class="day">SUN</div>
-          <div class="day">MON</div>
-          <div class="day">TUE</div>
-          <div class="day">WED</div>
-          <div class="day">THU</div>
-          <div class="day">FRI</div>
-          <div class="day">SAT</div>
-        </div>
-        <div class="dates"></div>
-      </div>
-    </div>
-    <script src="index.js"></script>
-</body>
+      <div class="todo-container">
+        <div>
+          <div class="todo-today">5월 3일 금요일</div>
+          <ol class="todo-list-contatiner">
+            <li class="todo-todo">
+              <div class="todo-check-text">
+                <button type="button">
+                  <img src="/assets/check-icon.svg" alt="complete" />
+                </button>
+                <span class="todo-work-complete">할 일 쭈르륵</span>
+              </div>
 
+              <button type="button" class="todo-delete-btn">
+                <img
+                  src="/assets/delete.svg"
+                  alt="not-complete"
+                  class="todo-delete-icon"
+                />
+              </button>
+            </li>
+            <li class="todo-todo">
+              <div class="todo-check-text">
+                <button type="button">
+                  <img src="/assets/empty-icon.svg" alt="complete" />
+                </button>
+                <span class="todo-work-complete">할 일 쭈르륵</span>
+              </div>
+
+              <button type="button" class="todo-delete-btn">
+                <img
+                  src="/assets/delete.svg"
+                  alt="todo-delete"
+                  class="todo-delete-icon"
+                />
+              </button>
+            </li>
+            <li class="todo-todo">
+              <div class="todo-check-text">
+                <button type="button">
+                  <img src="/assets/check-icon.svg" alt="complete" />
+                </button>
+                <span class="todo-work">할 일 쭈르륵</span>
+              </div>
+
+              <button type="button" class="todo-delete-btn">
+                <img
+                  src="/assets/delete.svg"
+                  alt="not-complete"
+                  class="todo-delete-icon"
+                />
+              </button>
+            </li>
+            <li class="todo-todo">
+              <div class="todo-check-text">
+                <button type="button">
+                  <img src="/assets/check-icon.svg" alt="complete" />
+                </button>
+                <span class="todo-work-complete">할 일 쭈르륵</span>
+              </div>
+
+              <button type="button" class="todo-delete-btn">
+                <img
+                  src="/assets/delete.svg"
+                  alt="not-complete"
+                  class="todo-delete-icon"
+                />
+              </button>
+            </li>
+            <li class="todo-todo">
+              <div class="todo-check-text">
+                <button type="button">
+                  <img src="/assets/check-icon.svg" alt="complete" />
+                </button>
+                <span class="todo-work-complete">할 일 쭈르륵</span>
+              </div>
+
+              <button type="button" class="todo-delete-btn">
+                <img
+                  src="/assets/delete.svg"
+                  alt="not-complete"
+                  class="todo-delete-icon"
+                />
+              </button>
+            </li>
+          </ol>
+        </div>
+        <input
+          class="todo-input"
+          type="text"
+          placeholder="할 일을 입력해 주세요."
+        />
+      </div>
+    </main>
+    <script src="/js/index.js"></script>
+  </body>
 </html>
