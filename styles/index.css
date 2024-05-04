@@ -52,17 +52,26 @@ main {
   font-size: 1.2rem;
 }
 
+.day.sun {
+  color: #ff7a7a;
+}
+
+/** 왜 repeat (7 1fr); 로 하면 안되고 저렇게 해야 되는 거지? */
 .dates {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   font-size: 1.1rem;
 }
 
 .date {
-  width: calc(100% / 7);
   height: 8rem;
   padding: 0.8rem;
   border: 0.1rem solid #d9d9d9;
+  color: #000000;
+}
+
+.date.prev {
+  color: #d9d9d9;
 }
 
 .calendar-container {
@@ -120,6 +129,7 @@ main {
   border: solid 0.1rem #d9d9d9;
   border-radius: 1.5rem;
   outline-color: #56a4ff;
+  font-size: 1rem;
 }
 
 .todo-input::placeholder {

@@ -37,7 +37,13 @@ for (let i = 1; i < 7 - currentLastDay; i++) {
 const dates = prevDates.concat(thisDates, nextDates);
 
 dates.forEach((date, i) => {
-  dates[i] = `<div class="date">${date}</div>`;
+  if (i < prevDates.length) {
+    dates[i] = `<div class="date prev">${date}</div>`;
+  } else if (i > prevDates.length + thisDates.length) {
+    dates[i] = `<div class="date prev">${date}</div>`;
+  } else if (prevDates.length < i < dates.length - nextDates.length) {
+    dates[i] = `<div class="date">${date}</div>`;
+  }
 });
 
 document.querySelector(".dates").innerHTML = dates.join("");
