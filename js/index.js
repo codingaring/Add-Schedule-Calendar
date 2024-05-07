@@ -4,7 +4,7 @@ const currentYear = date.getFullYear();
 const currentMonth = date.getMonth();
 const day = date.getDate();
 
-document.querySelector(".year-month").textContent = `${currentYear}년 ${
+document.querySelector(".today").textContent = `${currentYear}년 ${
   currentMonth + 1
 }월`;
 
@@ -20,9 +20,6 @@ const currentLastDay = currentLastDate.getDay();
 const prevDates = [];
 const thisDates = [...Array(currentLast + 1).keys()].slice(1);
 const nextDates = [];
-/** thisDates -> for (let i = 1; i <= currentLast; i++) {
-  prevDates.push(i);
-} */
 
 if (prevLastDay !== 6) {
   for (let i = 0; i < prevLastDay + 1; i++) {
@@ -39,7 +36,7 @@ const dates = prevDates.concat(thisDates, nextDates);
 dates.forEach((date, i) => {
   if (i < prevDates.length) {
     dates[i] = `<div class="date prev">${date}</div>`;
-  } else if (i > prevDates.length + thisDates.length) {
+  } else if (i > prevDates.length + thisDates.length - 1) {
     dates[i] = `<div class="date prev">${date}</div>`;
   } else if (prevDates.length < i < dates.length - nextDates.length) {
     dates[i] = `<div class="date">${date}</div>`;
@@ -47,3 +44,29 @@ dates.forEach((date, i) => {
 });
 
 document.querySelector(".dates").innerHTML = dates.join("");
+
+/** add to do*/
+const todoForm = document.querySelector(".todo-input-container");
+const todoInput = document.querySelector(".todo-input");
+const todoList = document.querySelector(".todo-list-container");
+const todoListArray = [];
+
+function printValue(event) {
+  event.preventDefault();
+  const toDo = todoInput.value;
+
+  const toDoTag = `
+  <li class="todo-todo">
+    <button class="process" type="button"></button>
+    <span class="process-text">${toDo}</span>
+    <button type="button" class="todo-delete-button"></button>
+  </li>`;
+  todoListArray.push(toDoTag);
+  document.querySelector(".todo-list-container").innerHTML =
+    todoListArray.join("");
+  todoInput.value = "";
+}
+
+todoForm.addEventListener("submit", printValue);
+
+/** check todo */
