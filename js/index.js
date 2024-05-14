@@ -59,7 +59,7 @@ function printValue(event) {
     const toDoTag = `
     <li class="todo-todo">
       <button id="check-button" class="process" type="button"></button>
-      <span class="process-text">${toDo}</span>
+      <span id="process-text">${toDo}</span>
       <button type="button" class="todo-delete-button"></button>
     </li>`;
     todoListArray.push(toDoTag);
@@ -68,14 +68,14 @@ function printValue(event) {
     todoInput.value = "";
   }
 
-  function handleCheckButton() {
-    const isCheckButton = this;
-    isCheckButton.classList.toggle("done");
-  }
-
   const checkButtons = document.querySelectorAll("#check-button");
-  checkButtons.forEach((button) => {
-    button.addEventListener("click", handleCheckButton);
+  const checkTodoTexts = document.querySelectorAll("#process-text");
+
+  checkButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      checkButtons[index].classList.toggle("done");
+      checkTodoTexts[index].classList.toggle("complete");
+    });
   });
 }
 

@@ -156,12 +156,12 @@ main {
   right: 0.5rem;
 }
 
-.process-text {
+#process-text {
   text-decoration: none;
   color: #000000;
 }
 
-.complete-text {
+#process-text.complete {
   text-decoration-line: line-through;
   color: #d9d9d9;
 }
