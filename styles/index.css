@@ -131,20 +131,19 @@ main {
   padding: 0.2rem;
 }
 
-.process {
-  background-image: url("/assets/empty-icon.svg");
+#check-button {
   background-repeat: no-repeat;
   background-position: center;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.done {
+#check-button.process {
+  background-image: url("/assets/empty-icon.svg");
+}
+
+#check-button.done {
   background-image: url("/assets/check-icon.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 .todo-delete-button {

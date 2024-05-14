@@ -55,18 +55,28 @@ function printValue(event) {
   event.preventDefault();
   const toDo = todoInput.value;
 
-  const toDoTag = `
-  <li class="todo-todo">
-    <button class="process" type="button"></button>
-    <span class="process-text">${toDo}</span>
-    <button type="button" class="todo-delete-button"></button>
-  </li>`;
-  todoListArray.push(toDoTag);
-  document.querySelector(".todo-list-container").innerHTML =
-    todoListArray.join("");
-  todoInput.value = "";
+  if (toDo) {
+    const toDoTag = `
+    <li class="todo-todo">
+      <button id="check-button" class="process" type="button"></button>
+      <span class="process-text">${toDo}</span>
+      <button type="button" class="todo-delete-button"></button>
+    </li>`;
+    todoListArray.push(toDoTag);
+    document.querySelector(".todo-list-container").innerHTML =
+      todoListArray.join("");
+    todoInput.value = "";
+  }
+
+  function handleCheckButton() {
+    const isCheckButton = this;
+    isCheckButton.classList.toggle("done");
+  }
+
+  const checkButtons = document.querySelectorAll("#check-button");
+  checkButtons.forEach((button) => {
+    button.addEventListener("click", handleCheckButton);
+  });
 }
 
 todoForm.addEventListener("submit", printValue);
-
-/** check todo */
