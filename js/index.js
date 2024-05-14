@@ -71,10 +71,14 @@ function printValue(event) {
   const checkButtons = document.querySelectorAll("#check-button");
   const checkTodoTexts = document.querySelectorAll("#process-text");
 
+  function checkTodo(index) {
+    checkButtons[index].classList.toggle("done");
+    checkTodoTexts[index].classList.toggle("complete");
+  }
+
   checkButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
-      checkButtons[index].classList.toggle("done");
-      checkTodoTexts[index].classList.toggle("complete");
+      checkTodo(index);
     });
   });
 }
