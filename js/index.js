@@ -107,18 +107,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    prevLastDate = new Date(selectYear, selectMonth, 0);
-    currentLastDate = new Date(selectYear, selectMonth + 1, 0);
+    const prevLastDate = new Date(selectYear, selectMonth, 0);
+    const currentLastDate = new Date(selectYear, selectMonth + 1, 0);
 
-    prevLast = prevLastDate.getDate();
-    prevLastDay = prevLastDate.getDay();
+    const prevLast = prevLastDate.getDate();
+    const prevLastDay = prevLastDate.getDay();
 
-    currentLast = currentLastDate.getDate();
-    currentLastDay = currentLastDate.getDay();
+    const currentLast = currentLastDate.getDate();
+    const currentLastDay = currentLastDate.getDay();
 
-    prevDates = [];
-    thisDates = [...Array(currentLast + 1).keys()].slice(1);
-    nextDates = [];
+    const prevDates = [];
+    const thisDates = [...Array(currentLast + 1).keys()].slice(1);
+    const nextDates = [];
 
     if (prevLastDay !== 6) {
       for (let i = 0; i < prevLastDay + 1; i++) {

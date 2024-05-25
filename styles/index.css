@@ -50,12 +50,19 @@ main {
   color: rgba(0, 0, 0, 0);
 }
 
+.today {
+  min-width: 8rem;
+  margin: 0 1rem;
+}
+
 .go-prev {
   background-image: url("/assets/left-button.svg");
+  background-position: center;
 }
 
 .go-next {
   background-image: url("/assets/right-button.svg");
+  background-position: center;
 }
 
 .days {
