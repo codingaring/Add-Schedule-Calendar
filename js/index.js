@@ -8,18 +8,18 @@ document.querySelector(".today").textContent = `${selectYear}년 ${
   selectMonth + 1
 }월`;
 
-let prevLastDate = new Date(selectYear, selectMonth, 0);
-let currentLastDate = new Date(selectYear, selectMonth + 1, 0);
+const prevLastDate = new Date(selectYear, selectMonth, 0);
+const currentLastDate = new Date(selectYear, selectMonth + 1, 0);
 
-let prevLast = prevLastDate.getDate();
-let prevLastDay = prevLastDate.getDay();
+const prevLast = prevLastDate.getDate();
+const prevLastDay = prevLastDate.getDay();
 
-let currentLast = currentLastDate.getDate();
-let currentLastDay = currentLastDate.getDay();
+const currentLast = currentLastDate.getDate();
+const currentLastDay = currentLastDate.getDay();
 
-let prevDates = [];
-let thisDates = [...Array(currentLast + 1).keys()].slice(1);
-let nextDates = [];
+const prevDates = [];
+const thisDates = [...Array(currentLast + 1).keys()].slice(1);
+const nextDates = [];
 
 if (prevLastDay !== 6) {
   for (let i = 0; i < prevLastDay + 1; i++) {
