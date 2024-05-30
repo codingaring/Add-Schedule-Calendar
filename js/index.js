@@ -1,5 +1,5 @@
 import updateDates from "./updateDates.js";
-import formatDate from "./utils/formatDate.js";
+import handleSelectDate from "./utils/handleSelectDate.js";
 import { selector, selectorAll } from "./utils/querySelector.js";
 
 const date = new Date();
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateDates(selectYear, selectMonth);
     selector(".today").textContent = `${selectYear}년 ${selectMonth + 1}월`;
 
-    handleAddEventListener();
+    handleSelectDate(selectYear, selectMonth);
   }
 
   if (prevButton) {
@@ -87,37 +87,5 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButton.addEventListener("click", handleSelectMonth);
   }
 
-  /** date event */
-  function handleAddEventListener() {
-    const dateList = selectorAll(".date");
-
-    function handleSelectDate(year, month, date) {
-      let selectCurrentMonth = formatDate(month + 1);
-      let selectCurrentDate = formatDate(Number(date));
-
-      let selectCurrentFullDate = year + selectCurrentMonth + selectCurrentDate;
-
-      return {
-        selectCurrentFullDate,
-        selectCurrentDate,
-        selectCurrentMonth,
-        year,
-      };
-    }
-
-    dateList.forEach((date) =>
-      date.addEventListener("click", (event) => {
-        const selectDate = selector(".todo-today");
-
-        let { selectCurrentDate, selectCurrentMonth, year } = handleSelectDate(
-          selectYear,
-          selectMonth,
-          event.target.textContent
-        );
-
-        selectDate.innerHTML = `${year}년 ${selectCurrentMonth}월 ${selectCurrentDate}일`;
-      })
-    );
-  }
-  handleAddEventListener();
+  handleSelectDate(selectYear, selectMonth);
 });
