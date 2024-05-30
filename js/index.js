@@ -1,4 +1,6 @@
 import updateDates from "./updateDates.js";
+import formatDate from "./utils/formatDate.js";
+import { selector, selectorAll } from "./utils/querySelector.js";
 
 const date = new Date();
 
@@ -6,16 +8,14 @@ let selectYear = date.getFullYear();
 let selectMonth = date.getMonth();
 let day = date.getDate();
 
-document.querySelector(".today").textContent = `${selectYear}년 ${
-  selectMonth + 1
-}월`;
+selector(".today").textContent = `${selectYear}년 ${selectMonth + 1}월`;
 
 updateDates(selectYear, selectMonth);
 
 /** add to do*/
-const todoForm = document.querySelector(".todo-input-container");
-const todoInput = document.querySelector(".todo-input");
-const todoList = document.querySelector(".todo-list-container");
+const todoForm = selector(".todo-input-container");
+const todoInput = selector(".todo-input");
+const todoList = selector(".todo-list-container");
 const todoListArray = [];
 
 function printValue(event) {
@@ -30,13 +30,12 @@ function printValue(event) {
       <button type="button" class="todo-delete-button"></button>
     </li>`;
     todoListArray.push(toDoTag);
-    document.querySelector(".todo-list-container").innerHTML =
-      todoListArray.join("");
+    selector(".todo-list-container").innerHTML = todoListArray.join("");
     todoInput.value = "";
   }
 
-  const checkButtons = document.querySelectorAll("#check-button");
-  const checkTodoTexts = document.querySelectorAll("#process-text");
+  const checkButtons = selectorAll("#check-button");
+  const checkTodoTexts = selectorAll("#process-text");
 
   function checkTodo(index) {
     checkButtons[index].classList.toggle("done");
@@ -54,8 +53,8 @@ todoForm.addEventListener("submit", printValue);
 
 // change selectMonth
 document.addEventListener("DOMContentLoaded", function () {
-  const prevButton = document.querySelector(".nav-button.go-prev");
-  const nextButton = document.querySelector(".nav-button.go-next");
+  const prevButton = selector(".nav-button.go-prev");
+  const nextButton = selector(".nav-button.go-next");
 
   function handleSelectMonth(event) {
     if (event.target.classList.contains("go-prev")) {
@@ -75,9 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     updateDates(selectYear, selectMonth);
-    document.querySelector(".today").textContent = `${selectYear}년 ${
-      selectMonth + 1
-    }월`;
+    selector(".today").textContent = `${selectYear}년 ${selectMonth + 1}월`;
 
     handleAddEventListener();
   }
@@ -92,23 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /** date event */
   function handleAddEventListener() {
-    const dateList = document.querySelectorAll(".date");
+    const dateList = selectorAll(".date");
 
     function handleSelectDate(year, month, date) {
-      let selectCurrentMonth;
-      let selectCurrentDate;
-
-      if (month + 1 < 10) {
-        selectCurrentMonth = "0" + (month + 1);
-      } else {
-        selectCurrentMonth = String(month + 1);
-      }
-
-      if (Number(date) < 10) {
-        selectCurrentDate = "0" + date;
-      } else {
-        selectCurrentDate = date;
-      }
+      let selectCurrentMonth = formatDate(month + 1);
+      let selectCurrentDate = formatDate(Number(date));
 
       let selectCurrentFullDate = year + selectCurrentMonth + selectCurrentDate;
 
@@ -122,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dateList.forEach((date) =>
       date.addEventListener("click", (event) => {
-        const selectDate = document.querySelector(".todo-today");
+        const selectDate = selector(".todo-today");
 
         let { selectCurrentDate, selectCurrentMonth, year } = handleSelectDate(
           selectYear,
