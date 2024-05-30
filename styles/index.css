@@ -97,6 +97,10 @@ main {
   color: #000000;
 }
 
+.date-number {
+  cursor: pointer;
+}
+
 .date.prev {
   color: #d9d9d9;
 }

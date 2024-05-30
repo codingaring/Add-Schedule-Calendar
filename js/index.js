@@ -134,11 +134,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dates.forEach((date, i) => {
       if (i < prevDates.length) {
-        dates[i] = `<div class="date prev">${date}</div>`;
+        dates[
+          i
+        ] = `<div class="date prev"><span class="date-number">${date}</span></div>`;
       } else if (i > prevDates.length + thisDates.length - 1) {
-        dates[i] = `<div class="date prev">${date}</div>`;
+        dates[
+          i
+        ] = `<div class="date prev"><span class="date-number">${date}</span></div>`;
       } else if (prevDates.length < i < dates.length - nextDates.length) {
-        dates[i] = `<div class="date">${date}</div>`;
+        dates[
+          i
+        ] = `<div class="date"><span class="date-number">${date}</span></div>`;
       }
     });
 
@@ -146,6 +152,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".today").textContent = `${selectYear}년 ${
       selectMonth + 1
     }월`;
+
+    handleAddEventListener();
   }
 
   if (prevButton) {
@@ -155,4 +163,50 @@ document.addEventListener("DOMContentLoaded", function () {
   if (nextButton) {
     nextButton.addEventListener("click", handleSelectMonth);
   }
+
+  /** date event */
+  function handleAddEventListener() {
+    const dateList = document.querySelectorAll(".date");
+
+    function handleSelectDate(year, month, date) {
+      let selectCurrentMonth;
+      let selectCurrentDate;
+
+      if (month + 1 < 10) {
+        selectCurrentMonth = "0" + (month + 1);
+      } else {
+        selectCurrentMonth = String(month + 1);
+      }
+
+      if (Number(date) < 10) {
+        selectCurrentDate = "0" + date;
+      } else {
+        selectCurrentDate = date;
+      }
+
+      let selectCurrentFullDate = year + selectCurrentMonth + selectCurrentDate;
+
+      return {
+        selectCurrentFullDate,
+        selectCurrentDate,
+        selectCurrentMonth,
+        year,
+      };
+    }
+
+    dateList.forEach((date) =>
+      date.addEventListener("click", (event) => {
+        const selectDate = document.querySelector(".todo-today");
+
+        let { selectCurrentDate, selectCurrentMonth, year } = handleSelectDate(
+          selectYear,
+          selectMonth,
+          event.target.textContent
+        );
+
+        selectDate.innerHTML = `${year}년 ${selectCurrentMonth}월 ${selectCurrentDate}일`;
+      })
+    );
+  }
+  handleAddEventListener();
 });
