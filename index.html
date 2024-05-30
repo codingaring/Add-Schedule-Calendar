@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calender ToDo</title>
-    <link rel="stylesheet" href="./styles//index.css" />
-  </head>
 
-  <body>
-    <main>
-      <div class="calendar-container">
-        <div class="calendar-container-box">
-          <div class="nav">
-            <button class="nav-button go-prev"></button>
-            <button class="today"></button>
-            <button class="nav-button go-next"></button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calender ToDo</title>
+  <link rel="stylesheet" href="./styles//index.css" />
+</head>
+
+<body>
+  <main>
+    <div class="calendar-container">
+      <div class="calendar-container-box">
+        <div class="nav">
+          <button class="nav-button go-prev"></button>
+          <button class="today"></button>
+          <button class="nav-button go-next"></button>
+        </div>
+        <div class="calender">
+          <div class="days">
+            <div class="day sun">SUN</div>
+            <div class="day">MON</div>
+            <div class="day">TUE</div>
+            <div class="day">WED</div>
+            <div class="day">THU</div>
+            <div class="day">FRI</div>
+            <div class="day">SAT</div>
           </div>
-          <div class="calender">
-            <div class="days">
-              <div class="day sun">SUN</div>
-              <div class="day">MON</div>
-              <div class="day">TUE</div>
-              <div class="day">WED</div>
-              <div class="day">THU</div>
-              <div class="day">FRI</div>
-              <div class="day">SAT</div>
-            </div>
-            <div class="dates"></div>
-          </div>
+          <div class="dates"></div>
         </div>
       </div>
-      <div class="todo-container">
-        <div class="todo-today-work">
-          <div class="todo-today">5월 3일 금요일</div>
-          <ol class="todo-list-container"></ol>
-        </div>
-        <form class="todo-input-container">
-          <input
-            class="todo-input"
-            type="text"
-            placeholder="할 일을 입력해 주세요."
-          />
-        </form>
+    </div>
+    <div class="todo-container">
+      <div class="todo-today-work">
+        <div class="todo-today">날짜를 선택해주세요</div>
+        <ol class="todo-list-container"></ol>
       </div>
-    </main>
-    <script type="module" src="/js/index.js"></script>
-  </body>
+      <form class="todo-input-container">
+        <input class="todo-input" type="text" placeholder="할 일을 입력해 주세요." />
+      </form>
+    </div>
+  </main>
+  <script type="module" src="/js/index.js"></script>
+</body>
+
 </html>

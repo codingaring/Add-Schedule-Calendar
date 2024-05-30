@@ -121,9 +121,9 @@ main {
 }
 
 .todo-today {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #56a4ff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3e3e3e;
 }
 
 .todo-list-container {
