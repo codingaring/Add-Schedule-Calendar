@@ -1,0 +1,34 @@
+/** user agent styledsheet reset **/
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  word-break: keep-all;
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
